@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#1f2328">
+  <title>Autonomous tracker: wiring and enclosure</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2328"/>
+    </marker>
+    <pattern id="cells" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#dbe7f5"/>
+      <path d="M0,0 H20 V20" fill="none" stroke="#8aa4c4" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="#ffffff"/>
+
+  <!-- Solar panel (on top of / outside the enclosure) -->
+  <rect x="40" y="30" width="220" height="110" rx="4" fill="url(#cells)" stroke="#1f2328" stroke-width="1.5"/>
+  <text x="150" y="160" text-anchor="middle" font-weight="bold">Solar panel, 5 V</text>
+  <text x="150" y="178" text-anchor="middle">RAK 80 × 45 mm (~90 mA)</text>
+  <text x="150" y="196" text-anchor="middle" fill="#57606a">max 5.5 V into the board</text>
+  <text x="150" y="214" text-anchor="middle" fill="#d1242f">cable: JST ZHR-2 (1.5 mm)</text>
+
+  <!-- Enclosure -->
+  <rect x="300" y="20" width="630" height="560" rx="10" fill="none" stroke="#57606a" stroke-width="1.5" stroke-dasharray="8 6"/>
+  <text x="315" y="42" fill="#57606a">IP65 enclosure (vent membrane, UV-stable, light colour)</text>
+
+  <!-- Base board -->
+  <rect x="330" y="70" width="380" height="330" rx="8" fill="#f6f8fa" stroke="#1f2328" stroke-width="1.5"/>
+  <text x="520" y="94" text-anchor="middle" font-weight="bold" font-size="15">RAK19003 Mini Base Board</text>
+
+  <rect x="350" y="110" width="160" height="70" rx="4" fill="#fff8c5" stroke="#9a6700"/>
+  <text x="430" y="135" text-anchor="middle" font-weight="bold">Charger + 3V3 reg.</text>
+  <text x="430" y="153" text-anchor="middle">solar → Li-Po</text>
+  <text x="430" y="170" text-anchor="middle" fill="#57606a">VBAT → ADC (battery V)</text>
+
+  <rect x="530" y="110" width="160" height="70" rx="4" fill="#ddf4ff" stroke="#0969da"/>
+  <text x="610" y="135" text-anchor="middle" font-weight="bold">Core: RAK4631</text>
+  <text x="610" y="153" text-anchor="middle">nRF52840 + SX1262</text>
+  <text x="610" y="170" text-anchor="middle" fill="#57606a">watchdog, BLE</text>
+
+  <rect x="350" y="230" width="160" height="80" rx="4" fill="#dafbe1" stroke="#1a7f37"/>
+  <text x="430" y="255" text-anchor="middle" font-weight="bold">Slot C: RAK12500</text>
+  <text x="430" y="273" text-anchor="middle">GNSS, I2C</text>
+  <text x="430" y="291" text-anchor="middle" fill="#57606a">backup mode = hot start</text>
+
+  <rect x="530" y="230" width="160" height="80" rx="4" fill="#dafbe1" stroke="#1a7f37"/>
+  <text x="610" y="255" text-anchor="middle" font-weight="bold">Slot D: RAK1904</text>
+  <text x="610" y="273" text-anchor="middle">accelerometer, I2C</text>
+  <text x="610" y="291" text-anchor="middle" fill="#57606a">INT → wake on motion</text>
+
+  <rect x="350" y="335" width="340" height="44" rx="4" fill="#ffffff" stroke="#57606a"/>
+  <text x="520" y="355" text-anchor="middle" font-weight="bold">Switched sensor power (3V3_S)</text>
+  <text x="520" y="371" text-anchor="middle" fill="#57606a">core can cut power to slots C and D</text>
+
+  <!-- internal links -->
+  <line x1="510" y1="145" x2="528" y2="145" stroke="#1f2328" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="610" y1="182" x2="610" y2="228" stroke="#1f2328" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="610" y1="200" x2="430" y2="200" stroke="#1f2328" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="430" y1="200" x2="430" y2="228" stroke="#1f2328" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="520" y="215" text-anchor="middle" fill="#57606a" font-size="12">I2C bus + interrupts</text>
+  <line x1="430" y1="312" x2="430" y2="333" stroke="#1f2328" stroke-width="1.2"/>
+  <line x1="610" y1="312" x2="610" y2="333" stroke="#1f2328" stroke-width="1.2"/>
+
+  <!-- Solar to charger -->
+  <path d="M260,85 H300 M300,85 H330 Q340,85 345,110" fill="none" stroke="#d1242f" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Battery -->
+  <rect x="350" y="450" width="250" height="100" rx="10" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5"/>
+  <rect x="600" y="485" width="12" height="30" rx="2" fill="#bc4c00"/>
+  <text x="475" y="478" text-anchor="middle" font-weight="bold" font-size="15">Li-Po 3.7 V, 2000 mAh</text>
+  <text x="475" y="498" text-anchor="middle">single cell, with protection PCB</text>
+  <text x="475" y="516" text-anchor="middle">JST PHR-2 (2.0 mm)</text>
+  <text x="475" y="536" text-anchor="middle" fill="#d1242f" font-weight="bold">Check polarity! Max 4.3 V</text>
+  <path d="M430,448 V405" fill="none" stroke="#d1242f" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+
+  <!-- Antennas -->
+  <line x1="690" y1="130" x2="780" y2="130" stroke="#1f2328" stroke-width="1.5"/>
+  <line x1="780" y1="130" x2="780" y2="70" stroke="#1f2328" stroke-width="3"/>
+  <circle cx="780" cy="66" r="4" fill="#1f2328"/>
+  <text x="792" y="88" font-weight="bold">LoRa antenna</text>
+  <text x="792" y="106">IPEX, vertical,</text>
+  <text x="792" y="122">away from battery</text>
+
+  <line x1="690" y1="165" x2="780" y2="165" stroke="#1f2328" stroke-width="1.5"/>
+  <rect x="772" y="158" width="16" height="14" fill="#1f2328"/>
+  <text x="798" y="170">BLE (PCB / IPEX)</text>
+
+  <rect x="740" y="420" width="150" height="16" rx="2" fill="#1a7f37"/>
+  <text x="815" y="455" text-anchor="middle" font-weight="bold">GNSS patch antenna</text>
+  <text x="815" y="473" text-anchor="middle">under the lid, facing sky,</text>
+  <text x="815" y="491" text-anchor="middle">no metal above it</text>
+  <path d="M350,295 H316 V422 H738" fill="none" stroke="#1a7f37" stroke-width="1.5"/>
+  <text x="640" y="416" text-anchor="middle" fill="#1a7f37" font-size="12">IPEX cable</text>
+
+  <!-- USB -->
+  <rect x="700" y="335" width="40" height="22" rx="4" fill="#ffffff" stroke="#1f2328"/>
+  <text x="720" y="351" text-anchor="middle" font-size="11">USB-C</text>
+  <text x="750" y="351" fill="#57606a" font-size="12">flashing / bench power</text>
+</svg>

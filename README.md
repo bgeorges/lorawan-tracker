@@ -16,6 +16,7 @@ SigFox's future is uncertain, so v2 starts over on open LoRaWAN with current har
 | [`decoder/`](decoder/) | TTN uplink payload formatter, with tests |
 | [`docs/payload.md`](docs/payload.md) | Uplink payload format (10 bytes on FPort 1) |
 | [`docs/hardware.md`](docs/hardware.md) | Proposed parts list and alternatives |
+| [`docs/autonomy.md`](docs/autonomy.md) | Battery, solar and self-healing design, with drawings and a 30-day power budget |
 
 ## Decoder tests
 

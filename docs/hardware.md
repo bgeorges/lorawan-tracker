@@ -8,7 +8,7 @@ Proposed build, RAK WisBlock:
 | Base board | RAK19003 (tracker) or RAK19007 (bench) | Both have battery and solar connectors. See [Base boards](#base-boards). |
 | GNSS | **RAK12500** | u-blox ZOE-M8Q, I2C. End-of-life (notice August 2026): buy spares while stock lasts. See [Using the RAK12501 instead](#using-the-rak12501-instead). |
 | Accelerometer | RAK1904 | For motion-triggered fixes |
-| Power | 3.7 V Li-Po, optional 5 V solar panel | |
+| Power | 3.7 V Li-Po, 2000 mAh, with protection circuit; RAK 5 V solar panel | Sized in [autonomy.md](autonomy.md) for 30+ days without sun |
 | Enclosure | RAK10700 kit housing (IP64), or your own | |
 
 The RAK10700 kit bundles most of this, including the RAK12500.
