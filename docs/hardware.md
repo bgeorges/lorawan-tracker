@@ -5,13 +5,41 @@ Proposed build, RAK WisBlock:
 | Part | Module | Notes |
 |---|---|---|
 | Core | RAK4631 | nRF52840 (BLE built in) + SX1262 LoRa. Order the frequency band for your region. |
-| Base board | RAK19007 (or similar) | Battery and solar connectors, USB-C |
+| Base board | RAK19003 (tracker) or RAK19007 (bench) | Both have battery and solar connectors. See [Base boards](#base-boards). |
 | GNSS | **RAK12500** | u-blox ZOE-M8Q, I2C. End-of-life (notice August 2026): buy spares while stock lasts. See [Using the RAK12501 instead](#using-the-rak12501-instead). |
 | Accelerometer | RAK1904 | For motion-triggered fixes |
 | Power | 3.7 V Li-Po, optional 5 V solar panel | |
 | Enclosure | RAK10700 kit housing (IP64), or your own | |
 
 The RAK10700 kit bundles most of this, including the RAK12500.
+
+## Base boards
+
+Both boards on hand work. Use the RAK19007 to develop and the RAK19003 for the finished tracker.
+
+| | RAK19007 Base Board (2nd gen) | RAK19003 Mini Base Board |
+|---|---|---|
+| Size | 30 x 60 mm | 30 x 35 mm |
+| Sensor slots | 4 (A–D) + 1 IO slot | 2 (C, D), no IO slot |
+| Battery / solar | 3.7 V Li-Po connector, 5 V solar connector | Li-Po charging, solar on a JST ZHR-2 (1.5 mm) connector |
+| Good for | Bench work: room for the GNSS, accelerometer and extra sensors while experimenting | The tracker itself: smaller, and two slots is exactly GNSS + accelerometer |
+
+Slot placement:
+
+| Module | RAK19007 | RAK19003 |
+|---|---|---|
+| RAK12500 GNSS | **Slot A** | **Slot C** |
+| RAK1904 accelerometer | Slot B or C | Slot D |
+
+Avoid putting the RAK12500 in slot D. It isn't listed as supported there, and a user on the RAK forum reports it didn't respond in RAK19007 slot D until moved to slot A.
+
+Both base boards can switch off power to the sensor slots, so the firmware can cut the GNSS completely between fixes.
+
+Check the connector polarity and solar panel voltage in each board's datasheet before wiring:
+[RAK19007 datasheet](https://docs.rakwireless.com/product-categories/wisblock/rak19007/datasheet/),
+[RAK19003 datasheet](https://docs.rakwireless.com/product-categories/wisblock/rak19003/datasheet/).
+Slot support: [Meshtastic WisBlock peripherals](https://meshtastic.org/docs/hardware/devices/rak-wireless/wisblock/peripherals/),
+[RAK forum: RAK12500 in slot D](https://forum.rakwireless.com/t/no-contact-with-the-sensor-rak12500-in-rak19007-slot-d/11776).
 
 ## Using the RAK12501 instead
 
