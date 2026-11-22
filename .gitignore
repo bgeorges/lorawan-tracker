@@ -1,0 +1,18 @@
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Device credentials (DevEUI / JoinEUI / AppKey); commit an example instead
+firmware/**/secrets.h
+firmware/**/credentials.h
+
+# Build output
+.pio/
+build/
+*.hex
+*.uf2
+*.zip
+
+# Node
+node_modules/
